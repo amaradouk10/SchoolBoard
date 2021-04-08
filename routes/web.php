@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,12 @@ Route::get('/', function () {
 Route::get('inscription', function () {
     return view('inscription');
 });
-Route::get('connexion', function () {
+Route::get('login', function () {
     return view('connexion');
 });
+
+
+
+
+Route::post('create',[UserController::class,'create'])->name('create');
+Route::post('connexion',[UserController::class,'connexion'])->name('connexion');

@@ -17,30 +17,31 @@
             </div>
             <div class="col-lg-5 col-md-5 col-sm-12 register">
                 <h4 class="text-center mt-4">Register</h4>
-                <form action="#" method="get" class="form-group">
+                <form action="{{ Route('create') }}" method="POST" class="form-group">
+                @csrf
                   <div class="input-field mt-3">
                       <i class="fa fa-user "></i>
-                      <input type="text" placeholder="Full Name">
+                      <input type="text" name="FullName" placeholder="Full Name">
                   </div>
                   <div class="input-field mt-3 ">
                     <i class="fa fa-envelope "></i>
-                    <input type="text" placeholder="email">
+                    <input type="text" name="email" placeholder="email">
                 </div>
                 <div class="input-field mt-3">
                     <i class="fa fa-phone "></i>
-                    <input type="text" placeholder="phone number">
+                    <input type="text" name="phoneNumber" placeholder="phone number">
                 </div>
                 <div class="input-field mt-3">
                     <i class="fa fa-home "></i>
-                    <input type="text" placeholder="classe">
+                    <input type="text" name="classe" placeholder="classe">
                 </div>
                 <div class="input-field mt-3">
                     <i class="fa fa-bell "></i>
-                    <input type="text" placeholder="Emergency number">
+                    <input type="text" name="emergencyNumber" placeholder="Emergency number">
                 </div>
                 <div class="input-field mt-3">
                     <i class="fa fa-key "></i>
-                    <input type="password" placeholder="password">
+                    <input type="password" name="password" placeholder="password">
                 </div>
                 <div class="input-field mt-3">
                     <i class="fa fa-key "></i>

@@ -17,14 +17,15 @@
             </div>
             <div class="col-lg-5 col-md-5 col-sm-12 login">
                 <h4 class="text-center mt-4 fw-3">log in</h4>
-                <form action="#" method="get" class="form-group">
+                <form action="{{ Route('connexion') }}" method="POST" class="form-group">
+                @csrf
                 <div class="input-field mt-5">
                     <i class="fa fa-envelope "></i>
-                    <input type="text" placeholder="email">
+                    <input type="email" name="email" placeholder="email">
                 </div>
                 <div class="input-field mt-5">
                     <i class="fa fa-key "></i>
-                    <input type="password" placeholder="password">
+                    <input type="password" name="password" placeholder="password">
                 </div>
                     <p class="text-center mt-5"><input type="submit" value="register" class="btn submitbtn "></p>
                 </form>
