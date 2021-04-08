@@ -53,10 +53,10 @@ class UserController extends Controller
         if($utilisateurs){
             if(Hash::check($request->password, $utilisateurs->password)){
                 if($utilisateurs->email!='Amaradouk10@gmail.com'){
-                    if($utilisateurs->classe='prof'){
-                        return redirect('prof');
-                    }else{
+                    if($utilisateurs->classe!='prof'){
                         return redirect('classe');
+                    }else{
+                        return redirect('prof');
                     }
                 }else{
                     return redirect('inscription');
