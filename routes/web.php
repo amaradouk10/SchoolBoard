@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\DirecteurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +23,28 @@ Route::get('inscription', function () {
 Route::get('login', function () {
     return view('connexion');
 });
+Route::get('dashbord', function () {
+    return view('directeur-dashbord');
+});
+Route::get('student', function () {
+    return view('AddStudent');
+});
+Route::get('matiere', function () {
+    return view('matiere');
+});
+Route::get('note', function () {
+    return view('note');
+});
 
 
 
 
-Route::post('create',[UserController::class,'create'])->name('create');
-Route::post('connexion',[UserController::class,'connexion'])->name('connexion');
+
+Route::post('create',[DirecteurController::class,'create'])->name('create');
+Route::post('matiere',[DirecteurController::class,'addMatiere'])->name('addMatiere');
+Route::post('connexion',[DirecteurController::class,'connexion'])->name('connexion');
+Route::get('dashbord',[DirecteurController::class,'profview']);
+Route::get('deleteprof/{id}',[DirecteurController::class,'deleteprof']);
+Route::get('student',[DirecteurController::class,'studentview']);
+Route::get('deletestudent/{id}',[DirecteurController::class,'deletestudent']);
+
