@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\matiere;
+use App\Models\note;
 use Illuminate\Http\Request;
 use App\Models\utilisateurs;
 use Illuminate\Support\Facades\Hash;
@@ -100,4 +101,32 @@ class DirecteurController extends Controller
             return back()->with('fail','compte inexistant');
         }
     }
+
+    public function noteManager(){
+        $utilisateurs=DB::select('select*from utilisateurs where role=\'eleve\' ');
+        $matiere=DB::select('select *from matieres');
+        Return view('note',['utilisateurs'=>$utilisateurs,'matiere'=>$matiere]);
+    }
+
+    public function addNote(Request $request){
+        $request->validate([
+            'utilisateur_id'=>'required',
+            'noteValue'=>'required',
+            'matiere_id'=>'required'
+        ]);
+
+        $note=new note();
+        $note->noteValue=$request->noteValue;
+        $note->matiere_id=$request->matiere_id;
+        $note->utilisateur_id=$request->utilisateur_id;
+        $query= $note->save();
+
+        if($query){
+            return back()->with('success','note enregistrée avec succès');
+        }
+        else{
+            return back()->with('fail','réesseyez a nouveau');
+        }
+    }
+
 }

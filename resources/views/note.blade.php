@@ -25,14 +25,42 @@
                         </ul>
                     </nav>
                 </div>
-                <div class="col-xs-1 col-sm-2 col-lg-3 bg-primary notediv">
-                    <h1 ><a href="note" class="classetitre text-center m-4">6ème</a></h1>
-                </div>
-                <div class="col-xs-1 col-sm-2 col-lg-3 bg-primary notediv">
-                    <h1 ><a href="note" class="classetitre text-center m-4">5ème</a></h1>
-                </div>
-                <div class="col-xs-1 col-sm-2 col-lg-3 bg-primary notediv">
-                    <h1 ><a href="note" class="classetitre text-center m-4">4ème</a></h1>
+                <div class="col-xs-8 col-sm-8 col-lg-8 m-5">
+                    <form action="{{ Route('addNote') }}" method="post">
+                    @csrf
+                    <table class="table table-borderless table-dark">
+                        <thead>
+                          <tr>
+                            <th scope="col">Matricule</th>
+                            <th scope="col">FullName</th>
+                            <th scope="col">Matière</th>
+                            <th scope="col">Mark</th>
+                            <th scope="col">Action</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($utilisateurs as $us)
+                            <tr>
+                                <td scope="row">{{ $us->id}}</th>
+                                    <input type="hidden" name="utilisateur_id" value="{{$us->id}}">
+                                <td>{{ $us->FullName}}</td>
+                                <td>
+                                    <select type='integer' name='matiere_id' class="form-control selectmatiere">
+                                        @foreach($matiere as $mat)
+                                            <option  value="{{ $mat->id }}">{{ $mat->matiereName }}</option>
+                                         @endforeach
+                                    </select>
+                                </td>
+                                <td><input type="integer" name="noteValue" placeholder=" entrez une note" class="m-2"></td>
+                                <td  class="d-flex">
+                                    <button type="submit" class="btn btn-primary m-1">valider</button>
+                                    <a href=""  class="btn btn-danger m-1">Update</a>
+                                </td>
+                            </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                    </form>
                 </div>
             </div>
     </div>

@@ -35,6 +35,9 @@ Route::get('matiere', function () {
 Route::get('note', function () {
     return view('note');
 });
+Route::get('studentdashbord', function () {
+    return view('student-profile');
+});
 
 
 
@@ -46,5 +49,7 @@ Route::post('connexion',[DirecteurController::class,'connexion'])->name('connexi
 Route::get('dashbord',[DirecteurController::class,'profview']);
 Route::get('deleteprof/{id}',[DirecteurController::class,'deleteprof']);
 Route::get('student',[DirecteurController::class,'studentview']);
+Route::get('note',[DirecteurController::class,'noteManager']);
 Route::get('deletestudent/{id}',[DirecteurController::class,'deletestudent']);
+Route::post('addNote',[DirecteurController::class,'addNote'])->name('addNote');
 
