@@ -40,6 +40,9 @@ Route::get('note', function () {
 Route::get('studentdashbord', function () {
     return view('student-profile');
 });
+Route::get('bulletin', function () {
+    return view('bulletin');
+});
 
 
 

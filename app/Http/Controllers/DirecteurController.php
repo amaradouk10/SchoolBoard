@@ -35,10 +35,12 @@ class DirecteurController extends Controller
     }
     public function addMatiere(Request $request){
         $request->validate([
-            'matiereName'=>'required'
+            'matiereName'=>'required',
+            'coefficient'=>'required'
         ]);
         $matiere=new matiere();
         $matiere->matiereName=$request->matiereName;
+        $matiere->coefficient=$request->coefficient;
         $query= $matiere->save();
         if($query){
             return back()->with('success','matière ajoutée');

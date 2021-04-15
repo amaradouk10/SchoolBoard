@@ -29,7 +29,7 @@
                     <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="" width="160" height="160">
                         <form action="{{Route('imageUpload')}}" method="post" enctype="multipart/form-data">
                         @csrf
-                        <input type="file" name="file" id="file" class="form-control btn"/>
+                        <input type="file" name="image" id="file" class="form-control btn"/>
                         <button type="submit" class="btn btn-success mt-4">Upload</button>
                         </form>
                     </div>

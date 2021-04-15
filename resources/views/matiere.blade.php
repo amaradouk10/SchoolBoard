@@ -33,6 +33,10 @@
                             <i class="fa fa-list-alt"></i>
                             <input type="text" name="matiereName" placeholder="matiere">
                         </div>
+                        <div class="input-field mt-3 inputmatiere">
+                            <i class="fa fa-list-alt"></i>
+                            <input type="number" name="coefficient" placeholder="coefficient">
+                        </div>
                             <p class="text-center mt-3"><input type="submit" value="register" class="btn submitbtn "></p>
                         </form>
                 </div>
@@ -43,7 +47,7 @@
 
 
 
-                
+
 
 
 
