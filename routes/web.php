@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DirecteurController;
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,4 +54,6 @@ Route::get('student',[DirecteurController::class,'studentview']);
 Route::get('note',[DirecteurController::class,'noteManager']);
 Route::get('deletestudent/{id}',[DirecteurController::class,'deletestudent']);
 Route::post('addNote',[DirecteurController::class,'addNote'])->name('addNote');
-
+Route::get('studentdashbord', [ImageController::class,'imageUpload']);
+Route::post('studentdashbord', [ImageController::class,'imageUpload'])->name('imageUpload');
+Route::get('studentdashbord', [StudentController::class,'noteview']);
