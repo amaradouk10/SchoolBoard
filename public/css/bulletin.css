@@ -17,6 +17,9 @@ html {
 
   table {
     border-collapse: collapse;
+    margin: auto;
+    width: 700PX;
+    height: 60VH;
   }
 
   .footer {

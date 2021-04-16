@@ -110,6 +110,8 @@ class DirecteurController extends Controller
         Return view('note',['utilisateurs'=>$utilisateurs,'matiere'=>$matiere]);
     }
 
+
+
     public function addNote(Request $request){
         $request->validate([
             'utilisateur_id'=>'required',
@@ -131,4 +133,13 @@ class DirecteurController extends Controller
         }
     }
 
+    public function getbulletin(){
+        $note=DB::select('select noteValue from  notes ');
+        $matiere=DB::select('select *from matieres');
+        $totalcoef = DB::table('matieres')->select()->sum('coefficient');
+        $totalnote = DB::table('notes')->select()->sum('noteValue');
+        $totalpoint=$totalcoef*$totalnote;
+        $moyenne=$totalpoint/$totalcoef;
+        Return view('bulletin',['note'=>$note,'matiere'=>$matiere,'totalcoef'=>$totalcoef,'totalpoint'=>$totalpoint,'moyenne'=>$moyenne]);
+    }
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DirecteurController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\BulletinController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,3 +61,6 @@ Route::post('addNote',[DirecteurController::class,'addNote'])->name('addNote');
 Route::get('studentdashbord', [ImageController::class,'imageUpload']);
 Route::post('studentdashbord', [ImageController::class,'imageUpload'])->name('imageUpload');
 Route::get('studentdashbord', [StudentController::class,'noteview']);
+Route::get('bulletin', [DirecteurController::class,'getbulletin']);
+Route::post('bulletin', [BulletinController::class,'export'])->name('export');
+

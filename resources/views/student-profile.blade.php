@@ -18,7 +18,7 @@
                 <nav>
                     <ul class="nav navbar-nav">
                         <li class="nav-item"><a class="nav-link" href=""><i class="far fa-user-circle"></i><span>voir mes notes</span></a></li>
-                        <li class="nav-item"><a class="nav-link" href=""><i class="far fa-user-circle"></i><span>Generer un bulletin</span></a></li>
+                        <li class="nav-item"><a class="nav-link" href="bulletin"><i class="far fa-user-circle"></i><span>Generer un bulletin</span></a></li>
                         <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-user-circle"></i><span>Log out</span></a></li>
                     </ul>
                 </nav>

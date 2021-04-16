@@ -12,77 +12,44 @@
 <body>
     <head>
         <title> Student Report Card </title>
-        <h2> Student Report Card </h2>
+        <h2  class="text-center mt-5">Student Bulletin</h2>
       </head>
       <body>
-        <table>
+        <table class="mt-4">
           <thead>
             <tr>
-              <td colspan="3">Course </td>
-              <td rowspan="2"> Semester </td>
-              <td rowspan="2"> Credits </td>
-              <td colspan="2"> Grade </td>
-            </tr>
-            <tr>
-              <td>Code </td>
-              <td colspan="2"> Name </td>
-              <td> Letter </td>
-              <td> Points </td>
+              <td colspan="2">Course </td>
+              <td colspan="2"> Note</td>
+              <td rowspan="2"> Coefficient </td>
+              <td colspan="4"> Point </td>
             </tr>
           </thead>
           <tbody>
+            @foreach ($matiere as $mat)
             <tr>
-              <td>CS 225 </td>
-              <td colspan="2">Data Structures </td>
-              <td> Fall 2015</td>
-              <td> 3.0 </td>
-              <td> A </td>
-              <td> 12.0 </td>
+            <td colspan="2">{{$mat->matiereName}}
+                </td>
+                @foreach ($note as $not)
+                <td colspan="2">{{$not->noteValue}}</td>
+                @endforeach
+                <td colspan="2">{{$mat->coefficient}}</td>
+                <td colspan="2">{{$not->noteValue*$mat->coefficient}}</td>
             </tr>
-            <tr>
-              <td>PHIL 105 </td>
-              <td colspan="2">Ethics </td>
-              <td> Fall 2015</td>
-              <td> 3.0 </td>
-              <td> A- </td>
-              <td> 10.98 </td>
-            </tr>
-            <tr>
-              <td>ECE 310 </td>
-              <td colspan="2">Digital Signal Processing </td>
-              <td> Fall 2015</td>
-              <td> 3.0 </td>
-              <td> A </td>
-              <td> 12 </td>
-            </tr>
-            <tr>
-              <td>CS 373 </td>
-              <td colspan="2">Combinatorial Algorithms </td>
-              <td> Fall 2015</td>
-              <td> 3.0 </td>
-              <td> B+ </td>
-              <td> 9.99</td>
-            </tr>
-            <tr>
-              <td>MATH 225 </td>
-              <td colspan="2">Multi-Variable Calculus </td>
-              <td> Fall 2015</td>
-              <td> 3.0 </td>
-              <td> A- </td>
-              <td> 10.98 </td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
+            @endforeach
               <td colspan="4" class="footer">Total</td>
-              <td> 15.0 </td>
-              <td colspan="2">55.95 </td>
+              <td id='totalcoef'>{{$totalcoef}}</td>
+              <td colspan="2">{{$totalpoint}}</td>
             </tr>
             <tr>
               <td colspan="4" class="footer">Moyenne</td>
-              <td colspan="3">3.73 / 4.0 </td>
+              <td colspan="3">{{$moyenne}} /20</td>
             </tr>
         </table>
+        {{-- <form method="POST" action="{{ route('export') }}" >
+            {{ csrf_field() }}
+            <input type="text" name="name" placeholder="Nom de fichier" >
+            <button type="submit" >Exporter</button>
+        </form> --}}
       </body>
 </body>
 </html>
