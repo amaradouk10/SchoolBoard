@@ -20,7 +20,7 @@
                             <li class="nav-item"><a class="nav-link" href="student"><i class="fas fa-user-circle"></i><span>Ajoutez un élève</span></a></li>
                             <li class="nav-item"><a class="nav-link" href="note"><i class="fas fa-table"></i><span>Ajoutez une note</span></a></li>
                             <li class="nav-item"><a class="nav-link" href="matiere"><i class="far fa-user-circle"></i><span>Ajoutez une matière</span></a></li>
-                            <li class="nav-item"><a class="nav-link" href=""><i class="far fa-user-circle"></i><span>Generer un bulletin</span></a></li>
+                            <li class="nav-item"><a class="nav-link" href="bulletin"><i class="far fa-user-circle"></i><span>Generer un bulletin</span></a></li>
                             <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-user-circle"></i><span>Log out</span></a></li>
                         </ul>
                     </nav>

@@ -76,7 +76,7 @@ form{
 .navmatiere{
     background-color:#6C63FF;
     width: 20vw;
-    min-height:600px;
+    min-height:500px;
     height: auto ;
 }
 .inputmatiere{
@@ -94,3 +94,27 @@ form{
 
     text-decoration: none;
 }
+@media(max-width:983px){
+    .dashbordnavbar{
+        background-color:#6C63FF;
+        min-width: 100px;
+        width: 100%;
+        columns:initial;
+
+    }
+    .navmatiere{
+        background-color:#6C63FF;
+        min-width: 100px;
+        width: 100%;
+    }
+
+    .table-prof{
+        border-radius: 0px;
+    }
+}
+.noteinput{
+    width: 60px;
+    height: 46px;
+    border-radius: 7px;
+}
+

@@ -18,9 +18,9 @@
                         <ul class="nav navbar-nav">
                             <li class="nav-item text-light"><a class="nav-link active" href="dashbord"><i class="fas fa-plus-circle"></i><span>Ajouter un professeur</span></a></li>
                             <li class="nav-item"><a class="nav-link" href="student"><i class="fas fa-user-circle"></i><span>Ajoutez un élève</span></a></li>
-                            <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-table"></i><span>Ajoutez une note</span></a></li>
+                            <li class="nav-item"><a class="nav-link" href="note"><i class="fas fa-table"></i><span>Ajoutez une note</span></a></li>
                             <li class="nav-item"><a class="nav-link" href="matiere"><i class="far fa-user-circle"></i><span>Ajoutez une matière</span></a></li>
-                            <li class="nav-item"><a class="nav-link" href=""><i class="far fa-user-circle"></i><span>Generer un bulletin</span></a></li>
+                            <li class="nav-item"><a class="nav-link" href="bulletin"><i class="far fa-user-circle"></i><span>Generer un bulletin</span></a></li>
                             <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-user-circle"></i><span>Log out</span></a></li>
                         </ul>
                     </nav>
@@ -51,8 +51,8 @@
                                          @endforeach
                                     </select>
                                 </td>
-                                <td><input type="integer" name="noteValue" placeholder=" entrez une note" class="m-2"></td>
-                                <td  class="d-flex">
+                                <td class="mb-2 "><input type="integer" name="noteValue1" placeholder="note1" class=" noteinput"><span><input type="integer" name="noteValue2" placeholder="note2" class="noteinput"></span></td>
+                                <td  class="">
                                     <button type="submit" class="btn btn-primary m-1">valider</button>
                                     <a href=""  class="btn btn-danger m-1">Update</a>
                                 </td>

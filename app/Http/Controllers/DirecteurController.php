@@ -89,9 +89,9 @@ class DirecteurController extends Controller
             if(Hash::check($request->password, $utilisateurs->password)){
                 if($utilisateurs->email!='Amaradouk10@gmail.com'){
                     if($utilisateurs->classe!='prof'){
-                        return redirect('classe');
+                        return redirect('studentdashbord');
                     }else{
-                        return redirect('prof');
+                        return redirect('dashbord');
                     }
                 }else{
                     return redirect('dashbord');
@@ -115,12 +115,14 @@ class DirecteurController extends Controller
     public function addNote(Request $request){
         $request->validate([
             'utilisateur_id'=>'required',
-            'noteValue'=>'required',
+            'noteValue1'=>'required',
+            'noteValue2'=>'required',
             'matiere_id'=>'required'
         ]);
 
         $note=new note();
-        $note->noteValue=$request->noteValue;
+        $note->noteValue1=$request->noteValue1;
+        $note->noteValue2=$request->noteValue2;
         $note->matiere_id=$request->matiere_id;
         $note->utilisateur_id=$request->utilisateur_id;
         $query= $note->save();
@@ -134,12 +136,21 @@ class DirecteurController extends Controller
     }
 
     public function getbulletin(){
-        $note=DB::select('select noteValue from  notes ');
+        $note=DB::select('select * from  notes inner join matieres on matieres.id=matiere_id');
         $matiere=DB::select('select *from matieres');
         $totalcoef = DB::table('matieres')->select()->sum('coefficient');
-        $totalnote = DB::table('notes')->select()->sum('noteValue');
-        $totalpoint=$totalcoef*$totalnote;
-        $moyenne=$totalpoint/$totalcoef;
-        Return view('bulletin',['note'=>$note,'matiere'=>$matiere,'totalcoef'=>$totalcoef,'totalpoint'=>$totalpoint,'moyenne'=>$moyenne]);
+        $note1 = DB::table('notes')->select()->get('noteValue1');
+        $note2 = DB::table('notes')->select()->get('noteValue2');
+        $totalnote=[];
+        $sommetotal = 0 ;
+        foreach ($note as  $value) {
+            $total=(($value->noteValue1+$value->noteValue2)/2)*$value->coefficient;
+            $sommetotal = $sommetotal + $total ;
+            $moyenne = $sommetotal/$totalcoef;
+            array_push($totalnote, $total);
+        }
+
+        Return view('bulletin',['note'=>$note,'matiere'=>$matiere,'totalcoef'=>$totalcoef,'totalnote'=>$totalnote,
+        'sommetotal'=>$sommetotal,'moyenne'=>$moyenne]);
     }
 }

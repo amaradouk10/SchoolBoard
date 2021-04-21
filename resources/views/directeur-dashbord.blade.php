@@ -12,20 +12,20 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-2 col-md-3 col-sm-3 dashbordnavbar">
+            <div class="col-lg-4 col-md-6 col-sm-6 dashbordnavbar">
                 <h3 class="text-light text-center">Directeur</h3>
                <nav>
                 <ul class="nav navbar-nav">
                     <li class="nav-item text-light"><a class="nav-link active" href="dashbord"><i class="fas fa-plus-circle"></i><span>Ajouter un professeur</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="student"><i class="fas fa-user"></i><span>Ajoutez un élève</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-table"></i><span>Ajoutez une note</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="note"><i class="fas fa-table"></i><span>Ajoutez une note</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="matiere"><i class="far fa-user-circle"></i><span>Ajoutez une matière</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="bulletin"><i class="far fa-user-circle"></i><span>Generer un bulletin</span></a></li>
                     <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-user-circle"></i><span>Log out</span></a></li>
                 </ul>
                </nav>
             </div>
-            <div class="col-lg-4 col-md-5 col-sm-5 mt-5">
+            <div class="col-lg-4 col-md-6 col-sm-6 mt-5">
                 <h3 class="text-center table-prof">Ajout de Professeurs</h3>
                 <form action="{{ Route('create') }}" method="POST" class="form-group register">
                     @csrf

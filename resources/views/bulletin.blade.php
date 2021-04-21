@@ -19,30 +19,36 @@
           <thead>
             <tr>
               <td colspan="2">Course </td>
-              <td colspan="2"> Note</td>
               <td rowspan="2"> Coefficient </td>
+              <td colspan="2"> Note1</td>
+              <td colspan="2"> Note2</td>
               <td colspan="4"> Point </td>
             </tr>
           </thead>
           <tbody>
+            @php($compte=0)
             @foreach ($matiere as $mat)
             <tr>
-            <td colspan="2">{{$mat->matiereName}}
-                </td>
-                @foreach ($note as $not)
-                <td colspan="2">{{$not->noteValue}}</td>
-                @endforeach
+            <td colspan="2">{{$mat->matiereName}}</td>
+
+            @foreach ($note as $not)
+                @if ($mat->id==$not->matiere_id)
                 <td colspan="2">{{$mat->coefficient}}</td>
-                <td colspan="2">{{$not->noteValue*$mat->coefficient}}</td>
+                <td colspan="2">{{$not->noteValue1}}</td>
+                <td colspan="2">{{$not->noteValue2}}</td>
+                <td colspan="2" >{{$totalnote[$compte]}}</td>
+                @php($compte++)
+                @endif
+            @endforeach
             </tr>
             @endforeach
-              <td colspan="4" class="footer">Total</td>
-              <td id='totalcoef'>{{$totalcoef}}</td>
-              <td colspan="2">{{$totalpoint}}</td>
+            <tr>
+              <td colspan="8" rowspan="1" class="footer">Total</td>
+              <td colspan="2">{{$sommetotal}}</td>
             </tr>
             <tr>
-              <td colspan="4" class="footer">Moyenne</td>
-              <td colspan="3">{{$moyenne}} /20</td>
+              <td colspan="9"  class="footer">Moyenne</td>
+              <td> {{$moyenne}}/20</td>
             </tr>
         </table>
         {{-- <form method="POST" action="{{ route('export') }}" >
