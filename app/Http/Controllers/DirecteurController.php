@@ -139,8 +139,6 @@ class DirecteurController extends Controller
         $note=DB::select('select * from  notes inner join matieres on matieres.id=matiere_id');
         $matiere=DB::select('select *from matieres');
         $totalcoef = DB::table('matieres')->select()->sum('coefficient');
-        $note1 = DB::table('notes')->select()->get('noteValue1');
-        $note2 = DB::table('notes')->select()->get('noteValue2');
         $totalnote=[];
         $sommetotal = 0 ;
         foreach ($note as  $value) {
